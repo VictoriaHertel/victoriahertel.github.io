@@ -41,6 +41,18 @@ function fadeIn(element) {
   element.style.opacity = 1;
 }
 
+// NAV MENU MOBILE: HAMBURGER
+
+var hamburger = document.querySelector(".hamburger");
+
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('active');
+  document.querySelector('.header-right').classList.toggle('show');
+});
+
+
+
+
 
 // VIDEO SECTION: ADJUST DIMENSIONS
 
@@ -62,6 +74,8 @@ window.addEventListener('resize', adjustVideoDimensions);
 window.addEventListener('load', adjustVideoDimensions);
 
 
+
+
 // PORTFOLIO PAGE JS
 // TIMES SECTION: SCROLL TO TIMES
 
@@ -78,4 +92,13 @@ timesLink.addEventListener('click', (event) => {
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
+
+
+
+
+
+
+
+
+
 
