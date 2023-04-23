@@ -35,14 +35,13 @@ html, body {
 	display: flex;
 	align-items: center;
   position: fixed;
-	padding: 0 10px;
+	padding: 0 40px;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
 
 .nav-logo {
 	font-size: 15px;
-	padding: 0 20px;
   text-decoration: none;
   text-transform: uppercase;
   color: #595959;
@@ -51,6 +50,25 @@ html, body {
 .nav-logo:hover,
 .nav-logo:active {
   color: floralwhite;
+}
+
+.header-left-mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nav-left {
+    display: none;
+  } 
+
+  .header-left-mobile {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    padding: 20px 20px 0px 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
 }
 
 /* NAV RIGHT */
@@ -63,6 +81,7 @@ html, body {
   right: 20px;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+  z-index: 10;
 }
 
 .nav-link {
@@ -92,23 +111,24 @@ html, body {
 @media (max-width: 800px) {
   .nav-right {
     position: fixed;
-    top: 40px;
-    right: 0;
+    top: 60px;
+    right: 20px;
     background-color: transparent;
     flex-direction: column;
     align-items: flex-end;
-    z-index: 1000;
   }
 
   .nav-link {
-    margin-top: 10px;
+    padding: 5px 0;
   }
 }
 
 @media (max-width: 800px) {
   .header-right-mobile {
     display: block;
-    padding: 0px 10px;
+    padding: 20px 20px 0px 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
   }
 
   .header-right {
@@ -225,14 +245,19 @@ a:hover {
 
 /* PORTFOLIO PAGE CODE BEGINNING */
 
-/* PORTFOLIO WORKS SECTION */
+/* PORTFOLIO WORK OVERVIEW SECTION */
 
 .portfolio-work-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 800px;
-  padding: 50px;
+  height: 900px;
+}
+
+@media (max-width: 800px) {
+  .portfolio-work-links {
+      height: 600px;;
+  }
 }
 
 .portfolio-work-links li {
@@ -295,16 +320,16 @@ a:hover {
 }
 
 
-/* WORK TIMES SECTION */
+/* PORTFOLIO WORK SECTION */
 
-.times-section {
+.portfolio-work-section {
   margin: 0 auto;
   width: 33%;
   margin-top: 100px;
   margin-bottom: 50px;
 }
 
-.times-section h2 {
+.portfolio-work-section h2 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,13 +340,7 @@ a:hover {
   margin-bottom: 30px;
 }
 
-.times-section p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #595959;
-}
-
-.times-sectoin ul {
+.portfolio-work-section p {
   font-size: 14px;
   line-height: 1.5;
   color: #595959;
@@ -330,6 +349,12 @@ a:hover {
 .work-medium-text-container, .work-info-text-container {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+  .portfolio-work-section {
+    width: 75%;
+  }
 }
 
 /* PORTFOLIO VIDEO SECTION */
@@ -355,9 +380,21 @@ a:hover {
   height: 100%;
 }
 
+@media (max-width: 800px) {
+  .portfolio-video-container {
+    width: 93.5%;
+/*  padding-bottom: 56.25vw; Used before */
+    padding-bottom: calc((9 / 16) * 93.5%); /* Adjust the padding-bottom value based on the container width */
+    margin: 0 auto;
+  }
+  .portfolio-video {
+    width: 100%;
+  }
+}
 
 /* PORTFOLIO IMAGE SECTION */
-.image-row {
+
+.portfolio-image-row {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -379,7 +416,11 @@ a:hover {
 }
 
 @media (max-width: 800px) {
-  .portfolio-image {
+  .portfolio-image-overview {
+    width: calc(97% - 20px);
+  }
+
+  .portfolio-image-detail {
     width: calc(50% - 20px);
   }
 }
@@ -397,22 +438,76 @@ a:hover {
 
 /* BIO PAGE CODE BEGINNING */
 
-.bio-background-container {
+.bio-portrait-image-wrapper {
   display: flex;
+  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  overflow-y: auto;
-  position: relative;
-  z-index: 0;
-  margin-top: -60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.background-image {
+.bio-portrait-image-container {
+  position: relative;
+  width: 75%;
+  height: 100%;
+  transform: translate(-50px, -750px);
+}
+
+.bio-portrait-image {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
+@media (max-width: 800px) {
+  .bio-portrait-image-container {
+    transform: none;
+    width: 100%;
+  }
+}
+
+/* ARTIST STATEMENT SECTION */
+
+.artist-statement-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+}
+
+.artist-statement-text-container {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #595959;
+}
+
+.artist-statement-text-intro, .artist-statement-text-concept, .artist-statement-text-education, .artist-statement-text-international {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+  .artist-statement-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+  }
+
+  .artist-statement-text-container {
+    width: 100%;
+    margin-top: 20px;
+    transform: none;
+  }
+}
 
 /* EXHIBITION SECTION */
 
@@ -450,6 +545,12 @@ a:hover {
   font-size: 14px;
   line-height: 1.5;
   color: #595959;
+}
+
+@media (max-width: 800px) {
+  .exhibition-section {
+    width: 75%;
+  }
 }
 
 /* BIO PAGE CODE END */
