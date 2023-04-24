@@ -1,4 +1,5 @@
-// LANDING PAGE
+// LANDING PAGE BEGINNING
+
 // NAV MENU: HIDE & SHOW THROUGH SCROLL
 
 const navLeft = document.getElementById("nav-left");
@@ -8,6 +9,7 @@ const navLeftMobile = document.getElementById("nav-left-mobile");
 const navRightMobile = document.getElementById("nav-right-mobile");
 
 const navHamburger = document.getElementById("hamburger");
+const hamburgerLinks = document.querySelectorAll('.hamburger-link');
 
 let scrollPos = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
 
@@ -55,15 +57,18 @@ function fadeIn(element) {
 
 
 
-
-
-
 // NAV MENU MOBILE: HAMBURGER
 
 navHamburger.addEventListener('click', function() {
   navHamburger.classList.toggle('active');
-  document.querySelector('.header-right').classList.toggle('show');
+  document.getElementById('hamburger-dropdown').classList.toggle('show');
 });
+
+
+
+
+
+
 
 
 // VIDEO SECTION: ADJUST DIMENSIONS
@@ -85,11 +90,14 @@ function adjustVideoDimensions() {
 window.addEventListener('resize', adjustVideoDimensions);
 window.addEventListener('load', adjustVideoDimensions);
 
+// LANDING PAGE END
 
 
 
 
-// PORTFOLIO PAGE
+
+// PORTFOLIO PAGE BEGINNING
+
 // TIMES SECTION: SCROLL TO TIMES
 
 const timesLink = document.querySelector('[href="#portfolio-times-section"]');
@@ -102,6 +110,11 @@ timesLink.addEventListener('click', (event) => {
   const targetPosition = timesSection.getBoundingClientRect().top + window.pageYOffset - offset;
   window.scrollTo({ top: targetPosition, behavior: "smooth" });
 });
+
+
+// PORTFOLIO PAGE END
+
+
 
 
 

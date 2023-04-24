@@ -11,6 +11,11 @@ html, body {
   font-weight: bold;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
+
 /* LANDING PAGE & MAIN CODE BEGINNING */
 
 /* HEADER */
@@ -19,8 +24,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent !important;
   height: 60px;
+  background-color: transparent !important;
 }
 
 .custom-header {
@@ -31,11 +36,11 @@ html, body {
 
 /* NAV LEFT */
 
-.nav-left {
+.header-left {
 	display: flex;
 	align-items: center;
+  padding: 0 40px;
   position: fixed;
-	padding: 0 40px;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
@@ -56,32 +61,21 @@ html, body {
   display: none;
 }
 
-@media (max-width: 800px) {
-  .nav-left {
-    display: none;
-  } 
-
-  .header-left-mobile {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    padding: 20px 20px 0px 20px;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-  }
-}
-
 /* NAV RIGHT */
 
-.nav-right {
+.header-right {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+  flex-direction: row;
   position: fixed;
   right: 20px;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
-  z-index: 10;
+}
+
+.nav-right {
+  display: flex;
 }
 
 .nav-link {
@@ -97,64 +91,95 @@ html, body {
   color: floralwhite;
 }
 
-@media (max-width: 800px) {
-  .nav-link {
-    display: block;
-    padding: 0px 10px;
-  } 
-}
-
 .header-right-mobile {
-	display: none;
+  display: none;
 }
 
-@media (max-width: 800px) {
-  .nav-right {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    background-color: transparent;
-    flex-direction: column;
-    align-items: flex-end;
-  }
+/* NAV HAMBURGER */
 
-  .nav-link {
-    padding: 5px 0;
-  }
+.hamburger {
+  display: none;
 }
 
+/* NAV MOBILE */
+
 @media (max-width: 800px) {
-  .header-right-mobile {
-    display: block;
+  .header-left {
+    display: none;
+  } 
+
+  .header-left-mobile {
+    display: flex;
+    align-items: center;
     padding: 20px 20px 0px 20px;
+    position: fixed;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
+    z-index: 1;
   }
 
   .header-right {
     display: none;
   }
 
-  .header-right.show {
-    display: block;
+  .header-right-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 20px 0px 20px;
+    position: fixed;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 2;
+    left: 0;
+    right: 0; 
   }
-}
 
-a:hover {
-  cursor: pointer;
-}
+  .nav-right-mobile {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+  }
 
-/* NAV MOBILE HAMBURGER */
-
-@media (max-width: 800px) {
   .hamburger {
     display: block;
     width: 30px;
     height: 20px;
-    cursor: pointer;
     position: relative;
+    cursor: pointer;
+    z-index: 3;
   }
 
+  .hamburger-link {
+    display: block;
+    text-align: right;
+    padding: 5px 0;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #595959;
+
+  }
+
+  .hamburger-link:hover,
+  .hamburger-link:active {
+    color: floralwhite;
+  }
+
+  .hamburger-dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 30px;
+  }
+
+  .hamburger-dropdown.show {
+    display: flex;
+  }
+
+  /* HAMBURGER DESIGN DON'T TOUCH */
   .line {
     display: block;
     width: 100%;
@@ -252,12 +277,6 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 900px;
-}
-
-@media (max-width: 800px) {
-  .portfolio-work-links {
-      height: 600px;;
-  }
 }
 
 .portfolio-work-links li {
@@ -425,10 +444,6 @@ a:hover {
   }
 }
 
-
-
-
-
 /* PORTFOLIO PAGE CODE END */
 
 
@@ -438,6 +453,10 @@ a:hover {
 
 /* BIO PAGE CODE BEGINNING */
 
+.bio-portrait-container {
+  min-height: 100vh;
+}
+
 .bio-portrait-image-wrapper {
   display: flex;
   align-items: center;
@@ -446,21 +465,22 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
 }
 
 .bio-portrait-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   position: relative;
-  width: 75%;
-  height: 100%;
-  transform: translate(-50px, -750px);
 }
 
 .bio-portrait-image {
-  width: 100%;
-  height: auto;
   object-fit: cover;
+  object-position: center -750px; /* adjust the second value to shift the image view */
+  width: 75%;
+  height: 100vh;
 }
 
 @media (max-width: 800px) {
@@ -468,22 +488,34 @@ a:hover {
     transform: none;
     width: 100%;
   }
+
+  .bio-portrait-image {
+    object-position: center top;
+    width: 100%;
+    height: 100vh;
+  }
 }
+
+/*position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translateY(-50%); in case i want to add on top of the image */
 
 /* ARTIST STATEMENT SECTION */
 
 .artist-statement-section {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 75%;
+  padding-bottom: 25px;
+}
+
+.artist-statement-text-section {
+  width: 50%;
 }
 
 .artist-statement-text-container {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translateY(-50%);
   font-size: 14px;
   line-height: 1.5;
   color: #595959;
@@ -496,48 +528,43 @@ a:hover {
 
 @media (max-width: 800px) {
   .artist-statement-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75%;
+    width: 100%;
   }
 
-  .artist-statement-text-container {
-    width: 100%;
-    margin-top: 20px;
-    transform: none;
+  .artist-statement-text-section {
+    width: 75%;
   }
 }
 
 /* EXHIBITION SECTION */
 
 .exhibition-section {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 75%;
+  padding-bottom: 25px;
+}
+
+.exhibition-section-01, .exhibition-section-02 {
   width: 33%;
 }
 
-.solo-content {
-  margin-top: 100px;
-  margin-bottom: 50px;
-}
-
-.group-content {
-  margin-top: 50px;
-  margin-bottom: 100px;
+.solo-content, .group-content, .additionals-content, .education-content {
+  padding: 25px;
 }
 
 .exhibition-section h2 {
   font-size: 15px;
   text-transform: uppercase;
   color: #595959;
-  margin-bottom: 20px;
 }
 
 .exhibition-section h3 {
   font-size: 15px;
   text-transform: uppercase;
   color: #595959;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 7px;
 }
 
@@ -550,6 +577,17 @@ a:hover {
 @media (max-width: 800px) {
   .exhibition-section {
     width: 75%;
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .exhibition-section-01, .exhibition-section-02 {
+    width: 100%;
+    padding: 0;
+  }
+
+  .solo-content, .group-content, .additionals-content, .education-content {
+    padding: 0 0 50px 0;
   }
 }
 
