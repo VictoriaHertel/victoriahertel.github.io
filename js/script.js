@@ -65,12 +65,6 @@ navHamburger.addEventListener('click', function() {
 });
 
 
-
-
-
-
-
-
 // VIDEO SECTION: ADJUST DIMENSIONS
 
 function adjustVideoDimensions() {
@@ -105,9 +99,61 @@ const timesLink = document.querySelector('[href="#portfolio-times-section"]');
 timesLink.addEventListener('click', (event) => {
   event.preventDefault();
   const timesSection = document.querySelector('#portfolio-times-section');
-  const offset = 50; // Adjust this value to control the amount of white space
+  const offset = 50;
 
   const targetPosition = timesSection.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: targetPosition, behavior: "smooth" });
+});
+
+// STEPS SECTION: SCROLL TO STEPS
+
+const stepsLink = document.querySelector('[href="#portfolio-steps-section"]');
+
+stepsLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  const stepsSection = document.querySelector('#portfolio-steps-section');
+  const offset = 50;
+
+  const targetPosition = stepsSection.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: targetPosition, behavior: "smooth" });
+});
+
+// SCENT SECTION: SCROLL TO SCENT
+
+const scentLink = document.querySelector('[href="#portfolio-scent-section"]');
+
+scentLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  const scentSection = document.querySelector('#portfolio-scent-section');
+  const offset = 50;
+
+  const targetPosition = scentSection.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: targetPosition, behavior: "smooth" });
+});
+
+// DROP SECTION: SCROLL TO DROP
+
+const dropLink = document.querySelector('[href="#portfolio-drop-section"]');
+
+dropLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  const dropSection = document.querySelector('#portfolio-drop-section');
+  const offset = 50;
+
+  const targetPosition = dropSection.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: targetPosition, behavior: "smooth" });
+});
+
+// CORE SECTION: SCROLL TO CORE
+
+const coreLink = document.querySelector('[href="#portfolio-core-section"]');
+
+coreLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  const coreSection = document.querySelector('#portfolio-core-section');
+  const offset = 50;
+
+  const targetPosition = coreSection.getBoundingClientRect().top + window.pageYOffset - offset;
   window.scrollTo({ top: targetPosition, behavior: "smooth" });
 });
 
