@@ -5,6 +5,8 @@
 const navLeft = document.getElementById("nav-left");
 const navRight = document.getElementById("nav-right");
 
+const navMenu = document.getElementById('nav-right-mobile');
+
 const navLeftMobile = document.getElementById("nav-left-mobile");
 const navRightMobile = document.getElementById("nav-right-mobile");
 
