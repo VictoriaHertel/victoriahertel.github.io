@@ -167,6 +167,7 @@ coreLink.addEventListener('click', (event) => {
 
 
 
+
 // SCROLL TO TOP ON PAGE REFRESH
 
 window.onbeforeunload = function () {

@@ -640,47 +640,18 @@ a:hover {
   margin: 10px;
 }
 
-label {
-  display: block;
+.email-link {
   font-size: 14px;
+  line-height: 1.5;
   color: #595959;
-  margin: 10px;
-  text-align: left;
-  width: 100%;
-}
-
-input, textarea {
-  background-color: #f2f2f2;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  padding: 10px;
-  width: 100%;
-}
-
-button[type="submit"] {
-  background-color: #f2f2f2;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  color: #595959;
-  padding: 10px 20px;
-  margin: 10px;
+  text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
+.email-link:hover {
   background-color: #595959;
   color: floralwhite;
 }
-
-.form-group {
-  margin-bottom: 20px;
-  width: 100%;
-}
-
 
 
 
